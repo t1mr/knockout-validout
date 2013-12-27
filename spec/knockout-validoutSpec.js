@@ -11,19 +11,11 @@ if (typeof exports !== "undefined" && exports !== null) {
 }
 
 (function () {
-  var model = {};
-
-  model.integer_property = ko.observable().extend({
-    type: 'integer'
-  });
-
-  model.greater_than_five = ko.observable().extend({
-    gt: 5
-  });
-
-  model.greater_than_or_equal_to_five = ko.observable().extend({
-    gte: 5
-  });
+  var model = {
+    integer_property: ko.observable().extend({ type: 'integer' }),
+    greater_than_five: ko.observable().extend({ gt: 5 }),
+    greater_than_or_equal_to_five: ko.observable().extend({ gte: 5 }),
+  };
 
   describe('integer validator', function () {
     it('approves valid integers', function () {
