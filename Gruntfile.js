@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -15,8 +17,8 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('test', 'run test in browser', function() {
-    grunt.util.spawn({
+  grunt.registerTask('test', 'run test in browser', function(type) {
+    var console_test = grunt.util.spawn.bind(grunt.util, {
       cmd: process.argv[0],
       args: ['node_modules/jasmine-node/lib/jasmine-node/cli.js', '--color' ,'spec/knockout-validoutSpec.js'],
       opts: { stdio: 'inherit' }
@@ -25,8 +27,23 @@ module.exports = function(grunt) {
         console.error('Error: ' + error);
         console.error('Return code: ' + result.code);
       }
-      console.log(result.stdout.toString());
-      return;
     });
+    var browser_test = grunt.util.spawn.bind(grunt.util, {
+      cmd: 'xdg-open',
+      args: [path.join(__dirname, 'jasmine-standalone-2.0.0/SpecRunner.html')],
+    }, function (error, result) {
+      if (error) {
+        console.error('Error: ' + error);
+        console.error('Return code: ' + result.code);
+      }
+    });
+
+    switch (type) {
+      case 'browser':
+        browser_test();
+        break;
+      default:
+        console_test();
+    }
   });
 };
