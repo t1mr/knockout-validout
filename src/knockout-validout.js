@@ -48,6 +48,10 @@
   });
  */
 
+
+if (typeof exports !== "undefined" && exports !== null) {
+  ko = require('knockout');
+}
 //  TODO: encapsulate everythin in a workspace to avoid conflicts (e.g. commonly used words as validate)
 (function(){
   //  taken from here: http://javascript.crockford.com/remedial.html

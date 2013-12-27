@@ -6,6 +6,10 @@
   beforeEach: true
 */
 
+if (typeof exports !== "undefined" && exports !== null) {
+  var vo = require('../src/knockout-validout');
+}
+
 (function () {
   var model = {};
 
