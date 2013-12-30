@@ -6,6 +6,14 @@
  beforeEach: true
  */
 
+/*
+* TODO:
+* 1) float type
+* 2) add email type
+* 3) behaviour when values are missing
+* 4) error messages
+* */
+
 if (typeof exports !== "undefined" && exports !== null) {
   var vo = require('../src/knockout-validout');
 }

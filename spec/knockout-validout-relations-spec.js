@@ -6,7 +6,16 @@
  beforeEach: true
  */
 
-if (typeof exports !== "undefined" && exports !== null) {
+
+/*
+* TODO:
+* 1) Validators behaviour in case of missing or invalid numerical values.
+* 2) Error messages
+* 3) Relations to other properties (when the feature is added)
+* */
+
+
+ if (typeof exports !== "undefined" && exports !== null) {
   var vo = require('../src/knockout-validout');
 }
 
