@@ -43,6 +43,16 @@ if (typeof exports !== "undefined" && exports !== null) {
       model.integer_property(NaN);
       expect(model.integer_property.is_valid()).toBe(false);
     });
+
+    it('does not approve mixing numbers with text', function () {
+      model.integer_property('123qswasd');
+      expect(model.integer_property.is_valid()).toBe(false);
+    });
+
+    it('does not approve float numbers', function () {
+      model.integer_property('3.14');
+      expect(model.integer_property.is_valid()).toBe(false);
+    });
   });
 
 
