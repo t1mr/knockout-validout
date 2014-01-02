@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     });
     var browser_test = grunt.util.spawn.bind(grunt.util, {
       cmd: 'xdg-open',
-      args: [path.join(__dirname, 'jasmine-standalone-2.0.0/SpecRunner.html')],
+      args: [path.join(__dirname, 'jasmine-standalone/SpecRunner.html')],
     }, function (error, result) {
       if (error) {
         console.error('Error: ' + error);
