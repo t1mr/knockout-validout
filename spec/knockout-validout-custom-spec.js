@@ -14,14 +14,10 @@ if (typeof exports !== 'undefined' && exports !== null) {
   function custom_validator(){
     //  validats only if prop is 5
     if(parseInt(model.prop()) === 5){
-      model.prop.is_valid(true);
-      model.prop.validation_message(null);
-      model.prop.error_type(null);
+      model.prop.set_error(true, null, null);
     }
     else {
-      model.prop.is_valid(false);
-      model.prop.validation_message('Should be five');
-      model.prop.error_type('custom');
+      model.prop.set_error(false, 'Should be five', 'custom');
     }
   }
 
